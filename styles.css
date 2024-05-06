@@ -1,0 +1,157 @@
+@font-face {
+      font-family: ChineseRocks;
+      src: url('fonts/2887-font.otf');
+}
+@font-face {
+      font-family: title_font;
+      src: url('fonts/ST-Izhora-free.otf');
+}
+@font-face {
+      font-family: txt_font;
+      src: url('fonts/Arkhip-Regular.otf');
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("img/background.jpg");
+  background-size: contain;
+  background-color: rgb(129, 115, 115);
+  color: #ffffff;
+  margin: 80px auto 50px auto;
+}
+
+header {
+  z-index: 1000;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  padding: 12px 0 10px 0;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.hamburger-menu {
+  position: fixed;
+  font-size: 20px;
+  top: 13px;
+  left: 20px;
+  bottom: 10px;
+  z-index: 9999;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  height: 10px;
+}
+
+.menu-container {
+  position: fixed;
+  font-family: txt_font;
+  top: 54px;
+  left: -300px;
+  z-index: 999;
+  height: 100%;
+  background-color: black;
+  color: white;
+  box-sizing: border-box;
+  transition: left 0.3s ease;
+}
+
+.menu-container.open {
+  left: 0;
+}
+
+.menu-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-container ul li {
+  padding: 10px 20px;
+}
+
+.menu-container ul li:hover {
+  background-color: grey;
+
+}
+
+.menu-container ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  /* Убирает подчеркивание */
+  cursor: pointer;
+}
+
+.text {
+  line-height: 1.5;
+  text-align: justify;
+  max-width: 900px;
+  /* Или другое значение, подходящее для вашего дизайна */
+  margin: 0 auto;
+  padding: 0 10px;
+  font-size: 16px;
+  font-family: txt_font;
+}
+
+.title {
+  font-size: 30px;
+  font-family: title_font;
+}
+
+table {
+  border-collapse: collapse;
+  margin: -10px 10px 10px -8px;
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+.mainblock {
+  flex-direction: row;
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.start_button {
+  padding: 8px 10px;
+  font-size: 25px;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: rgb(255, 255, 255, 0.3);
+  border-radius: 5px;
+  font-family: ChineseRocks;
+  z-index: 999;
+  display: block;
+  margin: 40px 50px;
+  box-shadow: 4px 3px 5px white;
+}
+
+.info_button {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-family: ChineseRocks;
+  color: black;
+  z-index: 999;
+  margin: 0 auto;
+  box-shadow: 4px 3px 5px gray;
+}
