@@ -3,8 +3,8 @@ var planes = document.querySelectorAll('.planes')
 var cursor = document.querySelector('#cursor')
 var sky = document.querySelector('#sky')
 
-var height = [4, 8, 6, 8, 3.5, 4, 2.5, 19, 4, 20, 4, 19];
-var width = [4, 8, 7, 8, 3.5, 5, 2.5, 19, 11, 18, 11, 19];
+var height = [4, 8, 6, 8, 3.5, 4, 2.5, 19, 4, 20, 13, 4, 19];
+var width = [4, 8, 7, 8, 3.5, 5, 2.5, 19, 11, 18, 14, 11, 19];
 
 function changeScene(scene_id) {
   if (scene_id == 1){
@@ -32,7 +32,7 @@ function changeScene(scene_id) {
   }else if (scene_id == 3){
     sky.setAttribute("src", 'img/third_scene.jpg')
     for (var i = 0; i < planes.length; i++) {
-      if (i==6 || i==7 || i==8 || i==9 || i==10 || i==11){
+      if (i==6 || i==7 || i==8 || i==9 || i==10 || i==11 || i==12){
         planes[i].setAttribute("height",height[i]);
         planes[i].setAttribute("width",width[i]);
       }else{
@@ -183,7 +183,7 @@ function closeMenu(){
   });
   
   for (var i = 0; i < planes.length; i++) {
-    if (i==6 || i==7 || i==8 || i==9 || i==10 || i==11){
+    if (i==6 || i==7 || i==8 || i==9 || i==10 || i==11 || i==12){
       planes[i].setAttribute("height",height[i]);
       planes[i].setAttribute("width",width[i]);
     }
@@ -221,8 +221,8 @@ function openMenu(menu) {
     plane.setAttribute("width",'0');
   });
   
-  planes[11].setAttribute("height",height[11]);
-  planes[11].setAttribute("width",width[11]);
+  planes[12].setAttribute("height",height[12]);
+  planes[12].setAttribute("width",width[12]);
   planes[9].setAttribute("height",height[9]);
   planes[9].setAttribute("width",width[9]);
 }
