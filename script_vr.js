@@ -2,6 +2,8 @@ var clickableElements = document.querySelectorAll('.clickable')
 var planes = document.querySelectorAll('.planes')
 var cursor = document.querySelector('#cursor')
 var sky = document.querySelector('#sky')
+var menuContainer = document.getElementById("menuContainer");
+var hamburgerMenu = document.querySelector('.hamburger-menu');
 
 var height = [4, 8, 6, 8, 3.5, 4, 2.5, 19, 4, 20, 13, 4, 19];
 var width = [4, 8, 7, 8, 3.5, 5, 2.5, 19, 11, 18, 14, 11, 19];
@@ -254,29 +256,29 @@ AFRAME.registerComponent('open-menu-food',{
   }
 })
 
-var menuContainer = document.getElementById("menuContainer");
-var hamburgerMenu = document.querySelector('.hamburger-menu');
+
 
 function toggleMenu() {
-    if (menuContainer.style.left === "-300px") {
-        menuContainer.style.left = "0";
-        hamburgerMenu.innerHTML = '&#215;';
-        hamburgerMenu.style.fontSize = '30px';
-        document.addEventListener('click', closeMenuOutside);
+    var menuContainer = document.getElementById("menuContainer");
+    let paragraph = document.querySelector('.hamburger-menu');
+    if (!menuContainer.classList.contains('open')) {
+        menuContainer.classList.add('open');
+        paragraph.style.opacity = 0;
+        setTimeout(function() {
+          paragraph.innerHTML = '&#215;';
+          paragraph.style.fontSize = '30px';
+          paragraph.style.top = '10px';
+          paragraph.style.opacity = 1;
+        }, 100);
+
     } else {
-        menuContainer.style.left = "-300px";
-        hamburgerMenu.innerHTML = '&#9776;';
-        hamburgerMenu.style.fontSize = '20px';
-        document.removeEventListener('click', closeMenuOutside);
+        menuContainer.classList.remove('open');
+        paragraph.style.opacity = 0;
+        setTimeout(function() {
+          paragraph.innerHTML = '&#9776;';
+          paragraph.style.fontSize = '20px';
+          paragraph.style.top = '13px';
+          paragraph.style.opacity = 1;
+        }, 100);
     }
 }
-
-
-function closeMenuOutside(event) {
-    if (!menuContainer.contains(event.target) && event.target !== hamburgerMenu) {
-        menuContainer.style.left = "-300px";
-        hamburgerMenu.innerHTML = '&#9776;';
-        hamburgerMenu.style.fontSize = '20px';
-        document.removeEventListener('click', closeMenuOutside);
-    }
-} 
