@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0F91YHGDE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q0F91YHGDE');
+</script>
+<!-- Google Tag Manager -->
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(97356589, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/97356589" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TLTM96RJ');</script>
+  <!-- End Google Tag Manager -->
+    <meta charset="UTF-8"><meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Первый скандинавский бар в центре Иркутска. Европейская кухня и всевозможные закуски">
+    <meta name="keywords" content="Еда в баре Сморреброд, Меню бара Сморреброд, Алкогольное меню Иркутска, Бары с европейской кухней, Сморреброд Иркутск меню, бар, крафт, гастропаб, живая музыка">
+    <title>Виртуальный тур гастробара "Сморреброд"</title>
+    <link rel="stylesheet" href="style_vr.css" />
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.1.0/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLTM96RJ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+    <header>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <a href="index.html"><img src="img/logo.png" style="width: 150px;"></a>
+    </header>
+    <div class="menu-container" id="menuContainer">
+        <ul>
+            <li><a href="history.html">История</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+          <li><a href="vr_tour.html">Виртуальный тур</a></li>
+        </ul>
+    </div>
+    
+    <div id="start" style="position: absolute; top: 65px; left: 15px; z-index: 998;">
+      <button class="inf"  onclick="openInstructions()">!</button>
+      <div id="instructionsPopup" class="instruction">
+        <h2 style="font-family:title_font">Добро пожаловать в виртуальный тур гастробара "Сморреброд"</h2>
+        <p>Наш тур поможет вам познакомиться с интерьером, едой и напитками заведения.</p>
+        <p>Для осмотра локации поворачивайте телефон вокруг своей оси или вращайте локацию вручную с помощью пальцев.</p>
+        <p>Для перемещения по локациям необходимо найти места для перемещения и нажать на них.</p>
+        <p>Для ознакомления с меню необходимо познакомиться с барменами у бара на третьей локации. Для перехода на локацию ищи подсказку "Познакомиться с меню".</p>
+        <p>Внимание: в некоторых версиях браузера некоторые элементы тура могут не работать.</p>
+        <button class="inf close" onclick="closeInstructions()">&lt;</button>
+      </div>
+    </div>
+    <div id="closeMenu" style="position: absolute; display:none; opacity:0;">
+      <button class="menu_button" onclick="closeMenu()">Закрыть</button>
+    </div>
+    <div id="drinksMenu" class="drinks menu">
+      <h2 style="font-family:title_font; margin: 7px 0px;  padding-top:40px; text-shadow: 1px 1px 2px black;">
+        не карта бара, а знаменитые записки алхимика
+      </h2>
+      <div class="name_type">
+        легендарные элексиры
+      </div>
+      <div class="type_drinks">
+        <div class="product" onclick="showInfo(1,'drinks')">
+          <div>
+            фрея
+          </div>
+          <img src="img/drinks/фрея.png">
+          <div>
+            370 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(2,'drinks')">
+          <div>
+            снорри
+          </div>
+          <img src="img/drinks/снорри.png">
+          <div>
+            390 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(3,'drinks')" >
+          <div>
+            нордис
+          </div> 
+          <img src="img/drinks/нордис.png">
+          <div>
+            430 ₽
+          </div>
+        </div>        
+        <div class="product" onclick="showInfo(4,'drinks')">
+          <div>
+            стурла
+          </div>
+          <img src="img/drinks/стурла.png">
+          <div>
+            430 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(5,'drinks')">
+          <div>
+            альва
+          </div>
+          <img src="img/drinks/альва.png">
+          <div>
+            390 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(6,'drinks')">
+          <div>
+            дагмар
+          </div>
+          <img src="img/drinks/дагмар.png">
+          <div>
+            390 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(7,'drinks')">
+          <div>
+            фрейдис
+          </div>
+          <img src="img/drinks/фрейдис.png">
+          <div>
+            390 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(8,'drinks')">
+          <div>
+            йорунд
+          </div>
+          <img src="img/drinks/йорунд.png">
+          <div>
+            470 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(9,'drinks')">
+          <div>
+            драмбл
+          </div>
+          <img src="img/drinks/драмбл.png">
+          <div>
+            370 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(10,'drinks')">
+          <div>
+            ингви
+          </div>
+          <img src="img/drinks/ингви.png">
+          <div>
+            390 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(11,'drinks')">
+          <div>
+            ярбьёрг
+          </div>
+          <img src="img/drinks/ярбьёрг.png">
+          <div>
+            430 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(12,'drinks')">
+          <div>
+            варг
+          </div>
+          <img src="img/drinks/варг.png">
+          <div>
+            390 ₽
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(13,'drinks')">
+          <div>
+            тормунд
+          </div>
+          <img src="img/drinks/тормунд.png">
+          <div>
+            470 ₽
+          </div>
+        </div>
+      </div>
+        <div class="name_type">
+        снадобья для похода
+        </div>
+      <div class="type_drinks">
+        <div class="product" onclick="showInfo(14,'drinks')">
+         <div>
+            +100 к здоровью
+          </div>
+          <img src="img/drinks/к здоровью.png">
+          <div>
+            6 шотов
+            <div>
+              450 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(15,'drinks')">
+          <div>
+            +100 к мане
+          </div>
+          <img src="img/drinks/к мане.png">
+          <div>
+            6 шотов
+            <div>
+              450 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(16,'drinks')">
+          <div>
+            +100 к выносливости
+          </div>
+          <img src="img/drinks/к выносливости.png">
+          <div>
+            6 шотов
+            <div>
+              450 ₽
+          </div>
+          </div>
+        </div>
+      </div>
+        <div class="name_type">
+        Снадобья для знатного рейда
+        </div>
+      <div class="type_drinks">
+        <div class="product" onclick="showInfo(17,'drinks')">
+          <div>
+            +10 к силе
+          </div>
+          <img src="img/drinks/к силе.png">
+          <div>
+            6 шотов
+            <div>
+              550 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(18,'drinks')">
+          <div>
+            +10 к удаче
+          </div>
+          <img src="img/drinks/к удаче.png">
+          <div>
+            6 шотов
+            <div>
+              550 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(19,'drinks')">
+          <div>
+            +10 к скорости
+          </div>
+          <img src="img/drinks/к скорости.png">
+          <div>
+            6 шотов
+            <div>
+              550 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(20,'drinks')">
+          <div>
+            +10 к ловкости
+          </div>
+          <img src="img/drinks/к ловкости.png">
+          <div>
+            6 шотов
+            <div>
+              550 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(21,'drinks')">
+          <div>
+            +10 к очарованию
+          </div>
+          <img src="img/drinks/к очарованию.png">
+          <div>
+            6 шотов
+            <div>
+              550 ₽
+          </div>
+          </div>
+        </div>
+      </div>
+        <div class="name_type">
+        снадобья героические
+        </div>
+      <div class="type_drinks">
+        <div class="product" onclick="showInfo(22,'drinks')">
+          <div>
+            за славу
+          </div>
+          <img src="img/drinks/за славу.png">
+          <div>
+            6 шотов
+            <div>
+              650 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(23,'drinks')">
+          <div>
+            за андрея млд
+          </div>
+          <img src="img/drinks/за млд.png">
+          <div>
+            6 шотов
+            <div>
+              650 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(24,'drinks')">
+          <div >
+            за андрея андреевича
+          </div>
+          <img src="img/drinks/за андрея.png">
+          <div>
+            6 шотов
+            <div>
+              650 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(25,'drinks')">
+          <div>
+            за вадима
+          </div>
+          <img src="img/drinks/за вадима.png">
+          <div>
+            6 шотов
+            <div>
+              650 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(26,'drinks')">
+          <div>
+           за надежду 
+          </div>
+          <img src="img/drinks/за надежду.png">
+          <div>
+            6 шотов
+            <div>
+              650 ₽
+          </div>
+          </div>
+        </div>
+      </div>
+        <div class="name_type">
+        снадобья мифические
+        </div>
+      <div class="type_drinks">
+        <div class="product" onclick="showInfo(27,'drinks')">
+          <div>
+            ветры йотунхейма
+          </div>
+          <img src="img/drinks/ветры.png">
+          <div>
+            4 шота
+            <div>
+              650 ₽
+          </div>
+          </div>
+        </div>
+        <div class="product" onclick="showInfo(28,'drinks')">
+          <div>за теневых персонажей</div>
+          <img src="img/drinks/теневые персонажи.png">
+          <div>
+            4 шота
+            <div>
+              650 ₽
+          </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div id="foodMenu" class="food menu">
+        <h2 style="font-family:title_font; text-align: center; padding-top:40px; margin: 7px 0px; text-shadow: 1px 1px 2px black;">
+          Подходим-заказываем
+        </h2>
+        <div class="name_type">
+          Сморреброды
+        </div>
+        <div class="product_f">
+          <div class="type_food">С беконом, яйцом пашот и картофелем&nbsp;<span>|&nbsp;320&nbsp;₽</span></div>
+          <div class="type_food">С сельдью, картофелем и соленьями&nbsp;<span>|&nbsp;320&nbsp;₽</span></div>
+          <div class="type_food">С бужениной и вялеными томатами&nbsp;<span>|&nbsp;320&nbsp;₽</span></div>
+          <div class="type_food">С тар-таром из телятины ии перепелиным яйцом&nbsp;<span>|&nbsp;320&nbsp;₽</span></div>
+        </div>
+        <div class="name_type">
+          Горячие блюда
+        </div>
+        <div class="product_f">
+          <div class="type_food">Картошка-гармошка с бужениной&nbsp;<span>|&nbsp;470&nbsp;₽</span></div>
+          <div class="type_food">Жарёха из картофеля со свининой&nbsp;<span>|&nbsp;430&nbsp;₽</span></div>
+          <div class="type_food">Лепешка с фаршем и сыром&nbsp;<span>|&nbsp;430&nbsp;₽</span></div>
+          <div class="type_food">Фрикадельки с птитимом в сливочном соусе&nbsp;<span>|&nbsp;470&nbsp;₽</span></div>
+          <div class="type_food">Булочка со свининой и творожным сыром&nbsp;<span>|&nbsp;490&nbsp;₽</span></div>
+          <div class="type_food">Вафля с куриным шницелем и яйцом пашот&nbsp;<span>|&nbsp;430&nbsp;₽</span></div>
+          <div class="type_food">Фри с фаршем и моцареллой&nbsp;<span>|&nbsp;470&nbsp;₽</span></div>
+          <div class="type_food">Рёбрышки в карамели из колы с попкорном&nbsp;<span>|&nbsp;490&nbsp;₽</span></div>
+          <div class="type_food">Картофельные клецки с фаршем и грибочками <span>|&nbsp;490&nbsp;₽</span></div>
+          <div class="type_food">Пряная грудка с картофелем и фасолью <span>|&nbsp;470&nbsp;₽</span></div>
+        </div>
+        <div class="name_type">
+          Закуски к пенному
+        </div>
+        <div class="product_f">
+          <div class="type_food">Луковые колечки&nbsp;<span>|&nbsp;270&nbsp;₽</span></div>
+          <div class="type_food">Фри с сырным соусом&nbsp;<span>|&nbsp;270&nbsp;₽</span></div>
+          <div class="type_food">Чипс&Стрипс&nbsp;<span>|&nbsp;370&nbsp;₽</span></div>
+          <div class="type_food">Креветки в хрустящей панировке&nbsp;<span>|&nbsp;470&nbsp;₽</span></div>
+          <div class="type_food">Картофельные дольки&nbsp;<span>|&nbsp;270&nbsp;₽</span></div>
+          <div class="type_food">Креветки в соусе из сгущенки и васаби&nbsp;<span>|&nbsp;470&nbsp;₽</span></div>
+          <div class="type_food">Фирменные мясные чипсы&nbsp;<span>|&nbsp;370&nbsp;₽</span></div>
+          <div class="type_food">Жареный сыр косичка&nbsp;<span>&nbsp;|&nbsp;270&nbsp;₽</span></div>
+          <div class="type_food">Крылья в пивной глазури с картошкой фри&nbsp;<span>|&nbsp;370&nbsp;₽</span></div>
+        </div>
+        <div class="name_type">
+          Сообразим на дружину
+        </div>
+        <div class="product_f">
+          <div class="type_food" style="font-family:title_font;">Вальдимар "эстет"&nbsp;|&nbsp;300&nbsp;₽
+            <div style="font-family:text_font">
+            сало с горчицей и маринованным луком
+            </div></div>
+          <div class="type_food" style="font-family:title_font;">Глеб "застольный"&nbsp;|&nbsp;420&nbsp;₽
+            <div style="font-family:text_font">
+            хорош под водочку: сельдь, соленое сало, маринованные овощи, горчица
+            </div></div>
+          <div class="type_food" style="font-family:title_font;">Харальд "во хмелю"&nbsp;|&nbsp;550&nbsp;₽
+            <div style="font-family:text_font">
+            крылышки, луковые кольца, фри, чипсы
+            </div></div>
+          <div class="type_food" style="font-family:title_font;">Эймунд "не евши, не жравши"&nbsp;|&nbsp;750&nbsp;₽
+            <div style="font-family:text_font;">
+            стрипсы, картофельные дольки, жареная тортилья, мясные чипсы, чесночные сухарики, попкорн
+            </div>
+          </div>
+          <div class="type_food" style="font-family:title_font;">Сигмунд "на всех рассчитавший"&nbsp;|&nbsp;1150&nbsp;₽
+            <div style="font-family:text_font">
+            охотничьи колбаски, картофельные чипсы, фри, крылышки, луковые кольца, чипсы из тортильи, сыр косичка, попкорн, огурчики
+            </div></div>
+          <div class="type_food" style="font-family:title_font;">Хродгар, "поляну накрывший"&nbsp;|&nbsp;1650&nbsp;₽
+            <div style="font-family:text_font">
+            Ребрышки в глазури, соленое сало, буженина, крылышки, стрипсы, жареная картошечка, охотничьи колбаски, маринованные овощи
+            </div></div>
+        </div>
+        <div class="name_type">
+          Десерты
+        </div>
+        <div class="product_f">
+          <div class="type_food">Банановые пирожочки в сгущёнке и клубничной крошке&nbsp;<span>|&nbsp;320&nbsp;₽</span></div>
+          <div class="type_food">Хрустящая вафля с мороженым и карамелью&nbsp;<span>|&nbsp;320&nbsp;₽</span></div>
+        </div>
+      <h2 style="font-family:title_font; text-align: center; margin: 7px 0px; text-shadow: 1px 1px 2px black;">
+          едим-кутим
+      </h2>
+    </div>
+      <div id="info" class="infodiv" style="position: absolute;
+      display:none; opacity:0; z-index:998;">
+        <h1 style="font-family:title_font" id="infoName"></h1>
+        <img id="infoImage" src=" " alt="Изображение товара" style="width:120px; margin: -10px 0px;">
+        <p style="font-family:text_font" id="infoDscr"></p>
+        <p style="font-family:text_font" id="infoPrice"></p>
+        <div>
+          <button class="info_button" id="buttonDrinks" onclick="closeInfo('drinks')" >К барной карте</button>
+        </div>
+    </div>
+      <!-- Блок с информацией -->
+    <a-scene  vr-mode-ui="enabled: false">   
+      <!-- фон -->
+      <a-sky id="sky" src="img/first_scene.jpg">
+      </a-sky>
+      <!-- локация 1 -->
+      <a-image
+        class="planes clickable"
+        id="plane12"
+        height="4"
+        width="4"
+        position="11.7 -2.1 0"
+        rotation="-80 -80 0"
+        src="img/circle.png"
+        two-location
+      ></a-image>
+      <a-image
+        class="planes clickable"
+        id="plane13"
+        src="img/circle.png"
+        height="8"
+        width="8"
+        position="2 -5.1 -23"
+        rotation="-90 -80 0"
+        three-location
+      ></a-image>
+      <a-image
+        class="planes"
+        id="menu1"
+        src="img/меню2.png"
+        height="6"
+        width="7"
+        position="2 -0.1 -23"
+      ></a-image>
+      <!-- локация 2 --> 
+      <a-image
+        class="planes clickable"
+        id="plane21" 
+        src="img/circle.png"
+        height="0"
+        width="0"
+        position="4 -5 -25"
+        rotation="-90 -50 30"
+        one-location
+      ></a-image>
+      <a-image
+        class="planes clickable"
+        id="plane23"        
+        src="img/circle.png"
+        height="0"
+        width="0"
+        position="11.7 -2.1 -2"
+        rotation="-80 -80 0"
+        three-location
+      ></a-image>
+      <a-image
+        class="planes"
+        id="menu2"        
+        src="img/меню2.png"
+        height="0"
+        width="0"
+        position="17.7 0 -3"
+        rotation="0 -90 -1"
+      ></a-image>
+    <!-- локация 3 --> 
+      <a-image
+        class="planes clickable"
+        id="plane31" 
+        src="img/circle.png"
+        height="0"
+        width="0"
+        position="9 3 9"
+        rotation="0 -80 0"
+        one-location
+      ></a-image>
+      <a-image
+        class="planes clickable"
+        id="plane32" 
+        src="img/circle.png"
+        height="0"
+        width="0"
+        position="55 -36 -53"
+        rotation="-80 -90 0"
+        two-location
+      ></a-image>
+      <a-image
+        class="planes clickable"
+        id="plane3_bar12" 
+        src="img/посмотреть.png"
+        height="0"
+        width="0"
+        position="-34 13 9"
+        rotation="180 -80 180"
+        open-menu-drinks
+      ></a-image>
+      <a-image
+        class="planes"
+        id="plane3_bar11" 
+        src="img/что пить.png"
+        height="0"
+        width="0"
+        position="-35 11.9 2"
+        rotation="0 90 0"
+      ></a-image>
+      <a-image
+        class="planes"
+        id="plane3_att" 
+        src="img/подсказка_1.png"
+        height="0"
+        width="0"
+        position="12 -8 -50"
+        rotation="0 -20 0"
+      ></a-image>
+      <a-image
+        class="planes"
+        id="plane3_att2" 
+        src="img/подсказка_2.png"
+        height="0"
+        width="0"
+        position="50 8 10"
+        rotation="0 -90 0"
+      ></a-image>
+      <a-image
+        class="planes clickable"
+        id="plane3_bar22" 
+        src="img/посмотреть.png"
+        height="0"
+        width="0"
+        position="-6 8 52"
+        rotation="180 0 180"
+        open-menu-food
+      ></a-image>
+      <a-image
+        class="planes"
+        id="plane3_bar21" 
+        src="img/что есть.png"
+        height="0"
+        width="0"
+        position="0 12.5 60"
+        rotation="0 180 0"
+      ></a-image>
+      <a-camera id="camera" cursor="rayOrigin: mouse">
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
